@@ -2,6 +2,7 @@ import '../styles.css';
 import { useEffect, useState } from 'react';
 import CurrencyPicker from './CurrencyPicker';
 import Header from './Header';
+import Switch from '../resources/Switch';
 
 const Swap = ({ isSwapShown, setIsSwapShown }) => {
   const [selectedPaidToken, setSelectedPaidToken] = useState([
@@ -28,8 +29,8 @@ const Swap = ({ isSwapShown, setIsSwapShown }) => {
     return (
       <div className="horizontal-flex">
         <hr width="30%" className="divider"></hr>
-        <button className="rounded" onClick={swap}>
-          <span className="white-text">&#129045;&#129047;</span>
+        <button className="rounded column-flex align-center" onClick={swap}>
+          <Switch />
         </button>
         <hr width="30%" className="divider"></hr>
       </div>

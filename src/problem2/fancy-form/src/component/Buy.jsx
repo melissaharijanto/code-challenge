@@ -26,8 +26,8 @@ const Buy = ({
   const UnconnectedComponent = () => {
     return (
       <div className="main-purchase-layout unconnected">
-        <span className="header margin-right-0 margin-bottom-20">
-          Connect your wallet to start purchasing.
+        <span className="header margin-right-0 margin-bottom-20 text-center">
+          Select your wallet and click 'Connect Wallet' to start purchasing.
         </span>
         <div className="icon-grid">
           {wallet.map((item) => (
