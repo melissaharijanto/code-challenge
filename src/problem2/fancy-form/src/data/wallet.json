@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Uniswap Wallet",
+    "image": "https://app.uniswap.org/static/media/uniswap-wallet-icon.12b3568891522db07d59.png"
+  },
+  {
+    "name": "MetaMask",
+    "image": "https://app.uniswap.org/static/media/metamask-icon.c8b2298e68e585a7f4d9c7b7e6320715.svg"
+  },
+  {
+    "name": "WalletConnect",
+    "image": "https://app.uniswap.org/static/media/walletconnect-icon.bd207ef6f3632304cd1b6e772271cb43.svg"
+  },
+  {
+    "name": "Coinbase Wallet",
+    "image": "https://app.uniswap.org/static/media/coinbase-icon.6870e62fb40f1d213198361a1b3d5521.svg"
+  }
+]
