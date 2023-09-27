@@ -85,7 +85,6 @@ const Swap = ({ isSwapShown, setIsSwapShown }) => {
   const convertReceivedToken = (receivedValue) => {
     if (selectedPaidToken[0] !== 'Select Token' && paidMultiplier !== -1) {
       let paidTokens = (receivedValue * receivedMultiplier) / paidMultiplier;
-      console.log(paidTokens);
       setPaidValue(paidTokens);
       setPercentage(
         calculatePercentage(
@@ -109,7 +108,7 @@ const Swap = ({ isSwapShown, setIsSwapShown }) => {
   };
 
   const calculateExchangeRate = () => {
-    return receivedMultiplier / paidMultiplier;
+    return paidMultiplier / receivedMultiplier;
   };
 
   useEffect(() => {
