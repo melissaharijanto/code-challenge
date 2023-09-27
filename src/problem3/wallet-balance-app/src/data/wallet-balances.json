@@ -1,0 +1,37 @@
+[
+  {
+    "currency": "ZIL",
+    "amount": -30,
+    "blockchain": "Zilliqa"
+  },
+  {
+    "currency": "ETH",
+    "amount": -999,
+    "blockchain": "Ethereum"
+  },
+  {
+    "currency": "bNEO",
+    "amount": -999,
+    "blockchain": "Neo"
+  },
+  {
+    "currency": "ETH",
+    "amount": -50000,
+    "blockchain": "Ethereum"
+  },
+  {
+    "currency": "ETH",
+    "amount": 999,
+    "blockchain": "Ethereum"
+  },
+  {
+    "currency": "OSMO",
+    "amount": 5454,
+    "blockchain": "Osmosis"
+  },
+  {
+    "currency": "STOSMO",
+    "amount": 5555,
+    "blockchain": "Osmosis"
+  }
+]
