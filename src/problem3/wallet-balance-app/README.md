@@ -2,12 +2,12 @@
 
 This is made in regard to the assessment on this <a href="https://switcheo.notion.site/Problem-3-Messy-React-a6a8acd4eed744df8cc9b9d044478fba">link</a>.
 
-### TOC
+## TOC
 
 1. [Implementing the Datasource class](#implementing-the-datasource-class)
 2. [Antipatterns, Computational Inefficiencies, Problems](#antipatterns-computational-inefficiencies-problems)
 
-### Implementing the Datasource Class
+## Implementing the Datasource Class
 
 From the root directory, (i.e. `code-challenge`), head over to []`src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts`](https://github.com/melissaharijanto/code-challenge/blob/master/src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts). From this directory (i.e. `wallet-balancing-app`), head over to []`src/compiler/classes/Datasource.ts`](https://github.com/melissaharijanto/code-challenge/blob/master/src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts).
 
@@ -18,9 +18,9 @@ Short explanation:
 
 [Back to TOC](#toc)
 
-### Antipatterns, Computational Inefficiencies, Problems
+## Antipatterns, Computational Inefficiencies, Problems
 
-#### Assumptions
+### Assumptions
 
 Note: These are made post-refactoring process.
 1. `Props` interface is empty, but they should be representing the custom CSS to override properties of `BoxProps` from the MUI library.
@@ -28,7 +28,7 @@ Note: These are made post-refactoring process.
 3. `WalletRow` component is not given for the same reason as 2. 
 4. `classes` CSS class name is omitted from the skeleton.
 
-#### Testing
+### Testing
 
 1. Small testing has been conducted with mock data (`wallet-balances.json`) and mock components (`MockWalletRow.tsx`). 
 
@@ -44,7 +44,7 @@ Please click on the hyperlinks to see the details/explanations of the problems.
 ](#5-rows-assumes-that-each-balance-sortedbalances-is-of-type-formattedwalletbalance-when-the-implementation-suggests-that-it-is-a-sorted-and-filtered-walletbalance-array)
 6. [Minor bugs](#6-minor-bugs)
 
-#### 1. **Original skeleton code omits types or uses `any` to bypass Typescript checks.**
+### 1. **Original skeleton code omits types or uses `any` to bypass Typescript checks.**
 
 This is considered bad practice because it is essentially mixing JavaScript and TypeScript together. Putting `any` in Typescript essentially tells the compiler to ignore the type checks, and makes the purpose of using Typescript pointless. Examples of this is shown in the code block below: 
 ```
@@ -76,13 +76,13 @@ Solution: To overcome this problem, I have implemented a few custom types, the i
     
 [Back to Summary](#summary)
 
-#### 2. **`FormattedWalletBalance` is essentially the same as `WalletBalance`, with an extra `formatted` attribute.**
+### 2. **`FormattedWalletBalance` is essentially the same as `WalletBalance`, with an extra `formatted` attribute.**
 
 This is more of a design issue, but we can make the interface `FormattedWalletBalance` extend `WalletBalance`. As such, all instances of `WalletBalance` in `WalletPage` can be replaced with `FormattedWalletBalance` instead, because we are displaying the formatted prices. We will be keeping the interface `WalletBalance` in case there are specific needs for this, when the `formatted` attribute is not needed and we only need to perform computational maths on the raw values of prices.
 
 [Back to Summary](#summary)
 
-#### 3. **The given `WalletBalance` expects a `blockchain` attribute, but it is not given in the skeleton code.**
+### 3. **The given `WalletBalance` expects a `blockchain` attribute, but it is not given in the skeleton code.**
 
 Can be seen from the following block of code: 
 ```
@@ -110,7 +110,7 @@ Solution: Added a `blockchain` attribute of type `Blockchain` to the `WalletBala
 
 [Back to Summary](#summary)
 
-#### 4. `formattedBalances` is never used in the skeleton code. 
+### 4. `formattedBalances` is never used in the skeleton code. 
 
 `formattedBalances` was not used in the skeleton code at all. This does not seem to align with the behavior of the code, and this problem seems to be connected with problem number 5. The variable `rows` seems like it should be using `formattedBalances.map(...)` instead of `sortedBalances.map(...)`.
 
@@ -118,7 +118,7 @@ In my solution, I have changed the behavior of `rows` to use `formattedBalances`
 
 [Back to Summary](#summary)
 
-#### 5. `rows` assumes that each balance `sortedBalances` is of type `FormattedWalletBalance`, when the implementation suggests that it is a sorted and filtered `WalletBalance` array.
+### 5. `rows` assumes that each balance `sortedBalances` is of type `FormattedWalletBalance`, when the implementation suggests that it is a sorted and filtered `WalletBalance` array.
 
 `sortedBalances` in the skeleton code deals with `WalletBalance`, but it immediately assumes that the each balance in `sortedBalances` is a `FormattedWalletBalance` when declaring the const `rows`. The fix for this is the same as number 4.
 
@@ -170,7 +170,7 @@ const sortedBalances = useMemo(() => {
 
 [Back to Summary](#summary)
 
-#### 6. Minor bugs
+### 6. Minor bugs
 
 - `console.err` in the `useEffect` hook should be `console.error`
 
