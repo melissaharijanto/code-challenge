@@ -9,9 +9,7 @@ import { FormattedWalletBalance } from '../compiler/interfaces/FormattedWalletBa
 const WalletPage: React.FC<Props> = (props: Props) => {
   const { children, ...rest } = props;
   const balances = useWalletBalances();
-
   // const balances : FormattedWalletBalance[] = require('../data/wallet-balances.json')
-
   const [prices, setPrices] = useState({} as PriceData);
 
   useEffect(() => {
