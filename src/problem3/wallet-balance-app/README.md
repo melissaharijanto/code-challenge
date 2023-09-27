@@ -24,7 +24,7 @@ Short explanation:
 
 Note: These are made post-refactoring process.
 1. `Props` interface is empty, but they should be representing the custom CSS to override properties of `BoxProps` from the MUI library.
-2. Implementation for `useWalletBalances()` is not given, but it is a function that is omitted when the code is tested later on.
+2. Implementation for `useWalletBalances()` is not given, but it is a function that is omitted when the code is tested later on. Otherwise, I have tried testing it with mock data, i.e. `const balances = require('../data/wallet-balances.json')`
 3. `WalletRow` component is not given for the same reason. 
 4. `classes` CSS class name is omitted from the skeleton.
 
@@ -72,7 +72,7 @@ This is considered bad practice because it is essentially mixing JavaScript and 
 
 ```
 
-To overcome this problem, I have implemented a few custom types, the interface `PriceData` for `prices` and the type `Blockchain` for `blockchain`. The types can be seen in `src/compiler/interfaces/PriceData.ts` and `src/compiler/types/Blockchain.ts` and changes have been made in the `WalletPage component`.
+To overcome this problem, I have implemented a few custom types, the interface `PriceData` for `prices` and the union type `Blockchain | string` for `blockchain`. While union types may not have been the best practice, the `| string` is to account for the currencies that do not have a corresponding blockchain linked to it. The types can be seen in `src/compiler/interfaces/PriceData.ts` and `src/compiler/types/Blockchain.ts` and changes have been made in the `WalletPage component`.
     
 [Back to Summary](#summary)
 
@@ -161,4 +161,22 @@ const sortedBalances = useMemo(() => {
   }, [balances, prices]);
 ```
 
+- `sortedBalances` introduces variables that have not been declared before in the same scope, i.e. `lhsPriority`
+
+```
+const sortedBalances = useMemo(() => {
+    return balances.filter((balance: WalletBalance) => {
+		  const balancePriority = getPriority(balance.blockchain);
+
+      // here, should be balancePriority instead
+		  if (lhsPriority > -99) {
+		     if (balance.amount <= 0) {
+		       return true;
+		     }
+		  }
+		  return false
+		}) ...
+```
+
 [Back to Summary](#summary)
+
