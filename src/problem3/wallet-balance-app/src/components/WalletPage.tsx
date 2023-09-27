@@ -4,12 +4,13 @@ import { PriceData } from '../compiler/interfaces/PriceData';
 import { Datasource } from '../compiler/classes/Datasource';
 import { Props } from '../compiler/interfaces/Props';
 import { FormattedWalletBalance } from '../compiler/interfaces/FormattedWalletBalance';
-// import WalletRow from './MockWalletRow';
 
 const WalletPage: React.FC<Props> = (props: Props) => {
   const { children, ...rest } = props;
   const balances = useWalletBalances();
+
   // const balances : FormattedWalletBalance[] = require('../data/wallet-balances.json')
+
   const [prices, setPrices] = useState({} as PriceData);
 
   useEffect(() => {
