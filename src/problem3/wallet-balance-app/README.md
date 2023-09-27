@@ -9,7 +9,7 @@ This is made in regard to the assessment on this <a href="https://switcheo.notio
 
 ## Implementing the Datasource Class
 
-From the root directory, (i.e. `code-challenge`), head over to []`src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts`](https://github.com/melissaharijanto/code-challenge/blob/master/src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts). From this directory (i.e. `wallet-balancing-app`), head over to []`src/compiler/classes/Datasource.ts`](https://github.com/melissaharijanto/code-challenge/blob/master/src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts).
+From the root directory, (i.e. `code-challenge`), head over to [`src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts`](https://github.com/melissaharijanto/code-challenge/blob/master/src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts). From this directory (i.e. `wallet-balancing-app`), head over to [`src/compiler/classes/Datasource.ts`](https://github.com/melissaharijanto/code-challenge/blob/master/src/problem3/wallet-balance-app/src/compiler/classes/Datasource.ts).
 
 Short explanation: 
 
