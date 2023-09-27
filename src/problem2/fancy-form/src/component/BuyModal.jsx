@@ -44,7 +44,7 @@ const BuyModal = ({ token, closeFn, clearToken }) => {
     <div className="blurred-background">
       <div className="modal horizontal-flex flex-centered">
         <div className="column-flex">
-          <div className="space-between-flex">
+          <div className="vertical-flex">
             <div />
             <div className="clickable" onClick={cancel}>
               <Close />
