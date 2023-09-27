@@ -25,7 +25,7 @@ Short explanation:
 Note: These are made post-refactoring process.
 1. `Props` interface is empty, but they should be representing the custom CSS to override properties of `BoxProps` from the MUI library.
 2. Implementation for `useWalletBalances()` is not given, but it is a function that is omitted when the code is tested later on. Otherwise, I have tried testing it with mock data, i.e. `const balances = require('../data/wallet-balances.json')`
-3. `WalletRow` component is not given for the same reason. 
+3. `WalletRow` component is not given for the same reason as 2. 
 4. `classes` CSS class name is omitted from the skeleton.
 
 #### Testing
