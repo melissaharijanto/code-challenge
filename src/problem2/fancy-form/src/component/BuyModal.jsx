@@ -51,7 +51,7 @@ const BuyModal = ({ token, closeFn, clearToken }) => {
             </div>
           </div>
           <div className="margin-top-20" />
-          <div className="header horizontal-flex">
+          <div className="header horizontal-flex flex-centered">
             <span>You have selected</span>
             <img src={token[1]} className="logo margin-left-5" alt={token[0]} />
             <span>{token[0]} tokens.</span>

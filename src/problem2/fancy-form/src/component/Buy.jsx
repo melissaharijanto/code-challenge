@@ -54,7 +54,7 @@ const Buy = ({
           }`}
           alt={item.name}
         />
-        <span className="icon-text">{item.name}</span>
+        <span className="icon-text text-center">{item.name}</span>
       </div>
     );
   };

@@ -32,14 +32,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 75%;
+  width: 100%;
   border-radius: 30px;
-  padding: 40px;
+  padding: 25px;
   filter: drop-shadow(0 0 2.5rem var(--dark-50));
   border: 1px solid var(--white-50);
 
   @media (min-width: 640px) {
     width: 65%;
+    padding: 40px;
   }
 
   @media (min-width: 1024px) {
@@ -56,7 +57,11 @@
   font-family: Outfit, sans-serif;
   font-weight: 600;
   margin-right: 20px;
-  font-size: 20px;
+  font-size: 18px;
+
+  @media (min-width: 640px) {
+    font-size: 20px;
+  }
 }
 
 .header-container {
@@ -74,23 +79,37 @@
   flex-wrap: wrap;
   border-radius: 15px;
   background-color: var(--light-20);
-  margin: 20px 40px;
-  padding: 20px 0px 40px 0px;
+  margin: 10px 20px;
+  padding: 10px 0px 20px 0px;
   width: 100%;
+
+  @media (min-width: 640px) {
+    padding: 20px 0px 40px 0px;
+    margin: 20px 40px;
+  }
 }
 
 .space-between-flex {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   width: 100%;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .text-90 {
   color: var(--white-90);
   font-family: Outfit, sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
+
+  @media (min-width: 640px) {
+    font-size: 14px;
+  }
 }
 
 .dark-text {
@@ -98,7 +117,11 @@
 }
 
 .subheading {
-  font-size: 18px;
+  font-size: 16px;
+
+  @media (min-width: 640px) {
+    font-size: 18px;
+  }
 }
 
 .clickable {
@@ -123,7 +146,7 @@
   border-radius: 10px;
   border: 0;
   color: var(--white);
-  font-size: 16px;
+  font-size: 14px;
   font-family: Outfit, sans-serif;
   font-weight: 500;
   padding: 5px 20px;
@@ -136,6 +159,7 @@
 
   @media (min-width: 640px) {
     margin-bottom: 0px;
+    font-size: 16px;
   }
 }
 
@@ -153,7 +177,7 @@
   width: 100%;
   border-radius: 10px;
   padding: 12px;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
   outline-color: var(--dark);
   font-family: Outfit, sans-serif;
@@ -162,6 +186,7 @@
   @media (min-width: 640px) {
     flex: 1;
     margin-bottom: 0px;
+    font-size: 16px;
   }
 }
 
@@ -171,8 +196,12 @@
     padding: 15px 60px;
     font-weight: 600;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 14px;
     font-family: Outfit, sans-serif;
+
+    @media (min-width: 640px) {
+      font-size: 18px
+    }
 }
 
 .unconnected-wallet {
@@ -217,7 +246,7 @@
   left: 50%;
   padding: 2em;
   position: fixed;
-  width: 80%;
+  width: 100%;
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -277,7 +306,11 @@
   font-family: Outfit, sans-serif;
   font-weight: 500;
   color: var(--white);
-  font-size: 14px;
+  font-size: 12px;
+
+  @media (min-width: 640px) {
+    font-size: 14px;
+  }
 }
 
 .search-bar-div {
@@ -415,6 +448,7 @@
     row-gap: 10px;
     column-gap: 10px;
     margin: 10px 0px 20px 0px;
+    align-items: start;
 }
 
 .icon {
@@ -432,10 +466,14 @@
 
 .icon-text {
     font-family: Outfit, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--light);
     font-weight: 500;
     margin-top: 5px;
+    @media (min-width: 640px) {
+      font-size: 14px;
+    }
+
 }
 
 .border-icon {
@@ -458,9 +496,13 @@
 }
 
 .regular-text {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--white);
   font-family: Outfit, sans-serif;
+
+  @media (min-width: 640px) {
+    font-size: 18px;
+  }
 }
 
 .margin-top-10-mobile {
@@ -479,7 +521,7 @@
   border-radius: 10px;
   border: 0;
   color: var(--white);
-  font-size: 16px;
+  font-size: 14px;
   font-family: Outfit, sans-serif;
   font-weight: 500;
   padding: 5px 20px;
@@ -490,6 +532,10 @@
   margin-left: 10px;
   text-align: center;
   align-self: flex-start;
+
+  @media (min-width: 640px) {
+    font-size: 14px;
+  }
 }
 
 .disconnect-hover:hover {
