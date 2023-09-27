@@ -32,7 +32,7 @@ Note: These are made post-refactoring process.
 
 1. Small testing has been conducted with mock data (`wallet-balances.json`) and mock components (`MockWalletRow.tsx`). 
 
-#### Summary 
+### Summary 
 
 Please click on the hyperlinks to see the details/explanations of the problems.
 
