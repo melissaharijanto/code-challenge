@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import Close from '../resources/Close';
 import Search from '../resources/Search';
 import '../styles.css';
-import { Box } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
+import CustomLoader from './CustomLoader';
 
 export const imgLink = (currency) => {
   if (currency === 'STATOM') {
@@ -25,7 +24,11 @@ const Label = ({ item, onClick }) => {
     <button className="label" onClick={onClick}>
       <div className="space-between-flex">
         <div className="vertical-center-flex">
-          <img src={imgLink(item.currency)} className="logo" />
+          <img
+            src={imgLink(item.currency)}
+            className="logo"
+            alt={item.currency}
+          />
           <span className="currency-label">{item.currency}</span>
         </div>
         <div>
@@ -94,9 +97,7 @@ const CurrencyPicker = ({ closeFn, setTokenFn, setMultiplierFn }) => {
             />
           </div>
           {loading ? (
-            <Box sx={{ width: '100%', mt: 3, color: '#DBBFFE' }}>
-              <CircularProgress color="inherit" />
-            </Box>
+            <CustomLoader mt={3} />
           ) : (
             <div className="horizontal-flex">
               {filterData(data).map((item) => (

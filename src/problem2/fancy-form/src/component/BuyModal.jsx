@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Close from '../resources/Close';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CustomLoader from './CustomLoader';
 
 const BuyModal = ({ token, closeFn, clearToken }) => {
   const [tokenAmount, setTokenAmount] = useState(0);
@@ -8,6 +9,7 @@ const BuyModal = ({ token, closeFn, clearToken }) => {
   const [purchased, setPurchased] = useState(false);
   const [noTokensPurchasedMessage, setNoTokensPurchasedMessage] =
     useState(false);
+  const [loading, setLoading] = useState(false);
 
   const cancel = () => {
     clearToken();
@@ -16,9 +18,11 @@ const BuyModal = ({ token, closeFn, clearToken }) => {
 
   const purchase = () => {
     if (tokenAmount > 0) {
-      setPurchased(true);
-      setTimeout(() => clearToken(), 1500);
-      setTimeout(() => closeFn(false), 1500);
+      setLoading(true);
+      setTimeout(() => setLoading(false), 1500);
+      setTimeout(() => setPurchased(true), 1500);
+      setTimeout(() => clearToken(), 2000);
+      setTimeout(() => closeFn(false), 2000);
     } else {
       setNoTokensPurchasedMessage(true);
     }
@@ -74,7 +78,11 @@ const BuyModal = ({ token, closeFn, clearToken }) => {
             </span>
 
             <div className="margin-top-20 column-flex">
-              {purchased ? (
+              {loading ? (
+                <button className="connected-button connected-wallet horizontal-flex">
+                  <CustomLoader mt={0} />
+                </button>
+              ) : purchased ? (
                 <button className="connected-button connected-wallet horizontal-flex">
                   <CheckCircleIcon sx={{ mr: 0.75, width: '20px' }} />
                   Purchase Successful
@@ -89,6 +97,11 @@ const BuyModal = ({ token, closeFn, clearToken }) => {
               {noTokensPurchasedMessage ? (
                 <span className="text-90 margin-top-10">
                   Tokens to buy must be more than 0.
+                </span>
+              ) : null}
+              {loading ? (
+                <span className="text-90 margin-top-10">
+                  Purchasing your tokens...
                 </span>
               ) : null}
               <div className="padding-5" />

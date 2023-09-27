@@ -4,6 +4,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Search from '../resources/Search';
 import { imgLink } from './CurrencyPicker';
 import BuyModal from './BuyModal';
+import CustomLoader from './CustomLoader';
 
 const Buy = ({
   connected,
@@ -18,6 +19,7 @@ const Buy = ({
   const [showChooseWalletMessage, setShowChooseWalletMessage] = useState(false);
   const [showBuyModal, setShowBuyModal] = useState(false);
   const [buyToken, setBuyToken] = useState(['', '', '']);
+  const [loading, setLoading] = useState(false);
 
   const clearToken = () => {
     setBuyToken(['', '', '']);
@@ -35,18 +37,29 @@ const Buy = ({
           ))}
         </div>
         <ConnectWalletButton />
-        <span className="text-90 margin-top-10">
+        <span className="text-90 margin-top-10 text-center">
           {showChooseWalletMessage
             ? 'Please choose a wallet to connect to.'
             : null}
+          {loading ? 'Connecting you to your wallet. Please wait.' : null}
         </span>
       </div>
     );
   };
 
+  const selectWallet = (item) => {
+    if (selectedWallet.name === item.name) {
+      setSelectedWallet({
+        name: '',
+        image: '',
+      });
+    } else {
+      setSelectedWallet(item);
+    }
+  };
   const Icon = ({ item }) => {
     return (
-      <div className="icon-div" onClick={() => setSelectedWallet(item)}>
+      <div className="icon-div" onClick={() => selectWallet(item)}>
         <img
           src={item.image}
           className={`icon clickable ${
@@ -178,7 +191,9 @@ const Buy = ({
     if (walletNotSelected) {
       setShowChooseWalletMessage(true);
     } else {
-      setConnected(true);
+      setLoading(true);
+      setTimeout(() => setConnected(true), 1500);
+      setTimeout(() => setLoading(false), 1500);
     }
   };
 
@@ -188,12 +203,15 @@ const Buy = ({
         <button
           className="unconnected-wallet connected-button"
           onClick={connectButtonFunction}>
-          Connect Wallet
+          {loading ? <CustomLoader mt={0} /> : 'Connect Wallet'}
         </button>
       </>
     );
   };
 
+  useEffect(() => {
+    setShowChooseWalletMessage(false);
+  }, [selectedWallet]);
   return (
     <>
       {showBuyModal ? (
